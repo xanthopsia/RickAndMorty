@@ -1,0 +1,14 @@
+<div class="weather">
+    <h2>Weather Data</h2>
+    <h4>{{ city.getName() }}</h4>
+
+    <div>
+        <p>{{ city.getTime() }}</p>
+        <p>{{ city.getWeather().getWeather() }}</p>
+        <p>{{ city.getWeather().getTemperature() }}</p>
+    </div>
+    <form method="get">
+        <input type="text" name="city" placeholder="Search City">
+        <button type="submit">Search</button>
+    </form>
+</div>

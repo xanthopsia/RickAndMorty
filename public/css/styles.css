@@ -117,3 +117,18 @@ section a {
     max-height: 50px;
 }
 
+.weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+
+    color: white;
+}
+
+.weather div {
+    display: flex;
+    justify-content: center;
+    gap: 20px
+}
+

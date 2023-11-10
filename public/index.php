@@ -1,19 +1,26 @@
 <?php
 
+use App\Controllers\WeatherController;
 use App\Response;
 use App\Router\Router;
+use Dotenv\Dotenv;
 use Twig\Environment;
-use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
+use Twig\Extension\DebugExtension;
 
 require_once __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
 
 $loader = new FilesystemLoader(__DIR__ . '/../app/Views');
 $twig = new Environment($loader);
 
 $twig->addExtension(new DebugExtension());
 
-$currentDate = new DateTime();
+$weatherController = new WeatherController();
+$weatherData = $weatherController->index();
+$twig->addGlobal('city', $weatherData);
 
 $routeInfo = Router::dispatch();
 
